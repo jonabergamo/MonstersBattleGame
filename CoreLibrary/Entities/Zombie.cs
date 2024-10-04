@@ -2,15 +2,10 @@
 {
     public class Zombie : Monster
     {
-        public override void Atack()
+        public Zombie(string name, int attack, int defense, int health) : base(name, attack, defense, health)
         {
-            throw new NotImplementedException();
         }
 
-        public override void Defend()
-        {
-            throw new NotImplementedException();
-        }
 
         public override void UseSpecialAbility()
         {

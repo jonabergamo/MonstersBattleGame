@@ -3,7 +3,7 @@ using CoreLibrary.Interfaces;
 
 namespace CombatLibrary
 {
-    public class CombatManager 
+    public class CombatManager
     {
         private IStrategy strategy;  // A estratégia atual de combate
 
@@ -36,7 +36,7 @@ namespace CombatLibrary
         // Método para realizar uma habilidade especial (usada pelo dragão)
         public void SpecialAbilityAction(Monster attacker, Monster defender)
         {
-            SetStrategy(new DragonSpecialAbilityStrategy());
+            SetStrategy(new SpecialAbilityStrategy());
             ExecuteAction(attacker, defender);
         }
 

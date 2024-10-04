@@ -2,34 +2,27 @@
 using CombatLibrary;
 using CoreLibrary.Entities;
 
-// Criando dois monstros
-Robot robot = new Robot()
+class Program
 {
-    Name = "Cid",
-    Health = 200,
-    Attack = 25,
-    Defense = 15
-};
-Dragon dragon = new Dragon()
-{
-    Name = "dragonauta",
-    Health = 300,
-    Attack = 40,
-    Defense = 20
-};
+    static void Main(string[] args)
+    {
+        // Criando dois monstros
+        Monster robot = new Robot("Goblin", 100, 15, 5);
+        Monster zombie = new Zombie("Orc", 150, 20, 10);
 
-// Criando o gerenciador de combate
-CombatManager combatManager = new CombatManager();
+        // Criando o gerenciador de combate
+        CombatManager combatManager = new CombatManager();
 
-// Realizando um ataque
-combatManager.AttackAction(robot, dragon);  // Cid ataca Dragonauta
+        // Usando a estratégia de ataque
+        combatManager.SetStrategy(new AttackStrategy());
+        combatManager.ExecuteAction(robot, zombie);  // Goblin ataca o Orc
 
-// Realizando uma defesa
-combatManager.DefendAction(dragon);  // Dragonauta se defende
+        // Usando a estratégia de defesa
+        combatManager.SetStrategy(new DefendStrategy());
+        combatManager.ExecuteAction(zombie, robot);  // Orc se defende
 
-// Usando uma habilidade especial
-combatManager.SpecialAbilityAction(dragon, robot);
-
-//Mostra os pontos de vida atual de cada monstro
-combatManager.ShowMonstersHealth(dragon, robot);
-
+        // Usando a estratégia de habilidade especial
+        combatManager.SetStrategy(new SpecialAbilityStrategy());
+        combatManager.ExecuteAction(robot, zombie);  // Goblin usa habilidade especial contra o Orc
+    }
+}
