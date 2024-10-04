@@ -8,7 +8,7 @@
 
         public override void UseSpecialAbility()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("testando habilidade special do dragão");
         }
     }
 }

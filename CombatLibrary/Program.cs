@@ -7,8 +7,8 @@ class Program
     static void Main(string[] args)
     {
         // Criando dois monstros
-        Monster robot = new Robot("Goblin", 100, 15, 5);
-        Monster zombie = new Zombie("Orc", 150, 20, 10);
+        Monster robot = new Robot("Robo", 40, 25, 200);
+        Monster zombie = new Zombie("zombie", 30, 15, 250);
 
         // Criando o gerenciador de combate
         CombatManager combatManager = new CombatManager();

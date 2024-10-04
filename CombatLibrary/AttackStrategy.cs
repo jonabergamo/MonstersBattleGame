@@ -7,7 +7,7 @@ namespace CombatLibrary
     {
         public void Execute(Monster attacker, Monster defender)
         {
-            int damage = attacker.Attack - defender.Defense;
+            int damage = attacker.AttackDamage - defender.Defense;
             damage = damage > 0 ? damage : 0;
             defender.Health -= damage;
 
