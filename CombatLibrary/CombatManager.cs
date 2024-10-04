@@ -18,5 +18,32 @@ namespace CombatLibrary
         {
             strategy.Execute(attacker, defender);
         }
+
+        // Método para realizar uma ação de ataque
+        public void AttackAction(Monster attacker, Monster defender)
+        {
+            SetStrategy(new AttackStrategy());
+            ExecuteAction(attacker, defender);
+        }
+
+        // Método para realizar uma ação de defesa
+        public void DefendAction(Monster defender)
+        {
+            SetStrategy(new DefendStrategy());
+            ExecuteAction(defender, defender);  // O defensor está defendendo a si mesmo
+        }
+
+        // Método para realizar uma habilidade especial (usada pelo dragão)
+        public void SpecialAbilityAction(Monster attacker, Monster defender)
+        {
+            SetStrategy(new DragonSpecialAbilityStrategy());
+            ExecuteAction(attacker, defender);
+        }
+
+        public void ShowMonstersHealth(Monster monster1, Monster monster2)
+        {
+            Console.WriteLine($"{monster1.Name} possui {monster1.Health} pontos de vida");
+            Console.WriteLine($"{monster2.Name} possui {monster2.Health} pontos de vida");
+        }
     }
 }
