@@ -7,11 +7,11 @@ namespace CombatLibrary
     {
         public void Execute(Monster attacker, Monster defender)
         {
-            int damage = attacker.AttackDamage - defender.Defense;
+            int damage = attacker.AttackPower - defender.Defense;
             damage = damage > 0 ? damage : 0;
             defender.Health -= damage;
 
-            Console.WriteLine($"{attacker.Name} atacou {defender.Name} e causou {damage} pontos de dano.");
+            Console.WriteLine($"{attacker.Name} atacou {defender.Name} e causou {damage} pontos de dano em {defender.Name}.");
         }
     }
 }

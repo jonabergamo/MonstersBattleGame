@@ -8,11 +8,9 @@ namespace CombatLibrary
         public void Execute(Monster attacker, Monster defender)
         {
             // Habilidade especial de um Dragão que lança fogo e causa dano adicional
-            int specialDamage = attacker.AttackDamage + 2; // Dano aumentado como exemplo
+            int specialDamage = attacker.AttackPower + 2; // Dano aumentado como exemplo
             defender.Health -= specialDamage;
-            attacker.UseSpecialAbility();
-
-            Console.WriteLine($"{attacker.Name} usa sua habilidade especial e lança fogo, causando {specialDamage} de dano em {defender.Name}!");
+            attacker.SpecialAbility();
         }
     }
 }
